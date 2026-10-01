@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="Abhishek Kumbhar - Java Developer | Spring Boot | Backend Enthusiast">
+<meta name="theme-color" content="#061321">
+<title th:text="${p.name()} + ' | Java Developer'">Abhishek
+	Kumbhar | Java Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Caveat:wght@600&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="background-grid"></div>
+	<div class="orb orb-1"></div>
+	<div class="orb orb-2"></div>
+
+	<header class="site-header">
+		<div class="container nav-wrap">
+			<a class="brand" href="#home"> <span class="brand-mark">AK</span>
+				<span th:text="${p.name()}">Abhishek Kumbhar</span>
+			</a>
+
+			<nav class="nav-links" aria-label="Main navigation">
+				<a href="#home" class="active">Home</a> <a href="#about">About</a> <a
+					href="#skills">Skills</a> <a href="#experience">Experience</a> <a
+					href="#projects">Projects</a> <a href="#education">Education</a> <a
+					href="#contact">Contact</a>
+			</nav>
+
+			<button class="theme-toggle" id="themeToggle"
+				aria-label="Toggle theme">
+				<span class="moon">☾</span> <span class="sun">☀</span>
+			</button>
+		</div>
+	</header>
+
+	<main>
+		<!-- HERO -->
+		<section class="hero section" id="home">
+			<div class="container hero-grid">
+				<div class="hero-copy reveal">
+					<p class="hello">Hello, I'm</p>
+					<h1>
+						<span th:text="${p.firstName()}">Abhishek</span> <em
+							th:text="${p.lastName()}">Kumbhar</em>
+					</h1>
+					<p class="headline" th:text="${p.headline()}">Java Developer |
+						Spring Boot | Backend Enthusiast</p>
+					<p class="hero-text" th:text="${p.intro()}">Computer Science
+						and Engineering graduate with hands-on experience in Java, Spring
+						Boot, Hibernate, REST APIs and MySQL.</p>
+
+					<div class="hero-actions">
+						<a class="btn btn-primary" href="/resume1.pdf" download> <span
+							class="btn-icon">⇩</span> Download Resume
+						</a> <a class="btn btn-outline" href="#projects"> <span
+							class="btn-icon">&lt;/&gt;</span> View My Projects
+						</a>
+					</div>
+
+					<div class="social-row">
+						<a th:href="'https://' + ${p.linkedin()}" target="_blank"
+							rel="noopener" aria-label="LinkedIn">in</a> <a
+							th:href="'https://' + ${p.github()}" target="_blank"
+							rel="noopener" aria-label="GitHub">GH</a> <a
+							th:href="'mailto:' + ${p.email()}" aria-label="Email">✉</a>
+					</div>
+				</div>
+
+				<div class="hero-visual reveal">
+					<div class="hero-shape shape-a"></div>
+					<div class="hero-shape shape-b"></div>
+					<div class="portrait-wrap">
+						<img th:src="@{/img/photo.png}"
+							alt="Abhishek Kumbhar profile photo" class="portrait">
+					</div>
+					<div class="code-note">
+						<span>Code</span> <span>Build</span> <span>Improve</span> <span>Repeat</span>
+						<i></i>
+					</div>
+				</div>
+			</div>
+
+			<a class="scroll-down" href="#about"> <span class="scroll-circle">↓</span>
+				<small>Scroll Down</small>
+			</a>
+		</section>
+
+		<!-- ABOUT -->
+		<section class="section" id="about">
+			<div class="container">
+				<div class="about-card glass reveal">
+					<div class="about-copy">
+						<div class="section-heading compact">
+							<span class="heading-icon">♙</span>
+							<h2>
+								About <b>Me</b>
+							</h2>
+						</div>
+						<p th:text="${p.about()}">I'm a Computer Science and
+							Engineering graduate from Sharad Institute of Technology College
+							of Engineering.</p>
+					</div>
+
+					<div class="about-details">
+						<div class="detail-item">
+							<span class="detail-icon">⌖</span>
+							<div>
+								<small>Location</small><strong th:text="${p.location()}">Kolhapur,
+									Maharashtra</strong>
+							</div>
+						</div>
+						<a class="detail-item" th:href="'mailto:' + ${p.email()}"> <span
+							class="detail-icon">✉</span>
+							<div>
+								<small>Email</small><strong th:text="${p.email()}">abhikumbhar112233@gmail.com</strong>
+							</div>
+						</a> <a class="detail-item" th:href="'https://' + ${p.linkedin()}"
+							target="_blank" rel="noopener"> <span class="detail-icon">in</span>
+							<div>
+								<small>LinkedIn</small><strong th:text="${p.linkedin()}">https://www.linkedin.com/in/abhishek-kumbhar1?utm_source=share_via&utm_content=profile&utm_medium=member_android</strong>
+							</div>
+						</a> <a class="detail-item" th:href="'https://' + ${p.github()}"
+							target="_blank" rel="noopener"> <span class="detail-icon">GH</span>
+							<div>
+								<small>GitHub</small><strong th:text="${p.github()}">https://github.com/AbhiKumbhar7058</strong>
+							</div>
+						</a>
+						<div class="detail-item">
+							<span class="detail-icon">◆</span>
+							<div>
+								<small>Degree</small><strong th:text="${p.degree()}">B.Tech
+									(CSE) – 2025</strong>
+							</div>
+						</div>
+						<div class="detail-item">
+							<span class="detail-icon">★</span>
+							<div>
+								<small>CGPA</small><strong th:text="${p.cgpa()}">7.05</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SKILLS -->
+		<section class="section compact" id="skills">
+			<div class="container">
+				<div class="section-heading reveal">
+					<span class="section-number">02</span>
+					<h2>Skills</h2>
+				</div>
+				<p class="section-subtitle reveal">Technologies and tools I work
+					with</p>
+
+				<div class="skills-grid">
+					<div class="skill-card glass reveal" th:each="s : ${p.skills()}">
+						<span class="skill-logo" th:style="'--skill:' + ${s.color()}"
+							th:text="${s.code()}">J</span> <strong th:text="${s.name()}">Java</strong>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- EXPERIENCE + PROJECTS -->
+		<section class="section" id="experience">
+			<div class="container dual-grid">
+				<div>
+					<div class="section-heading reveal">
+						<span class="section-number">03</span>
+						<h2>Experience</h2>
+					</div>
+					<p class="section-subtitle reveal">My professional journey</p>
+
+					<div class="experience-card glass reveal">
+						<article class="experience-item" th:each="j : ${p.jobs()}">
+							<div class="company-badge"
+								th:text="${j.company().substring(0,1)}">S</div>
+							<div class="experience-body">
+								<div class="experience-top">
+									<div>
+										<h3 th:text="${j.company()}">Spordia Softech Pvt. Ltd,
+											Sangli</h3>
+										<p th:text="${j.role()}">Intern – Computer Vision / AI</p>
+									</div>
+									<time th:text="${j.dates()}">Jun 2025 – Dec 2025</time>
+								</div>
+								<ul>
+									<li th:each="point : ${j.points()}" th:text="${point}">Experience
+										point</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+				</div>
+
+				<div id="projects">
+					<div class="section-heading reveal">
+						<span class="section-number">04</span>
+						<h2>Projects</h2>
+					</div>
+					<p class="section-subtitle reveal">Real world projects with
+						modern technologies</p>
+
+					<div class="projects-stack">
+						<article class="project-card glass reveal"
+							th:each="pr,stat : ${p.projects()}">
+							<div class="project-icon"
+								th:text="${stat.index == 0 ? '⌘' : '✣'}">⌘</div>
+							<div class="project-content">
+								<h3 th:text="${pr.name()}">Student Management System</h3>
+								<div class="tech-list">
+									<span th:each="t : ${pr.tech()}" th:text="${t}">Java</span>
+								</div>
+								<ul>
+									<li th:each="point : ${pr.points()}" th:text="${point}">Project
+										point</li>
+								</ul>
+								<a href="#contact" class="project-link">View Project <span>→</span></a>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- EDUCATION + CONTACT -->
+		<section class="section" id="education">
+			<div class="container dual-grid bottom-grid">
+				<div>
+					<div class="section-heading reveal">
+						<span class="section-number">05</span>
+						<h2>Education</h2>
+					</div>
+					<p class="section-subtitle reveal">My academic background</p>
+
+					<div class="education-card glass reveal">
+						<div class="education-row" th:each="e : ${p.education()}">
+							<span class="edu-icon">◆</span>
+							<div class="edu-main">
+								<h3 th:text="${e.title()}">B.Tech – Computer Science &
+									Engineering</h3>
+								<p th:text="${e.place()}">Sharad Institute of Technology
+									College of Engineering, Ichalkaranji</p>
+							</div>
+							<div class="edu-score">
+								<strong th:text="${e.years()}">2021 – 2025</strong> <span
+									th:text="${e.score()}">CGPA: 7.05</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="contact">
+					<div class="section-heading reveal">
+						<span class="section-number">07</span>
+						<h2>Get In Touch</h2>
+					</div>
+					<p class="section-subtitle reveal">I'm open to new
+						opportunities and collaborations. Feel free to reach out!</p>
+
+					<div class="contact-card glass reveal">
+						<div class="contact-list">
+							<a th:href="'mailto:' + ${p.email()}"><span
+								class="contact-icon">✉</span><span><small>Email</small><strong
+									th:text="${p.email()}">Email</strong></span></a> <a
+								th:href="'https://' + ${p.linkedin()}" target="_blank"
+								rel="noopener"><span class="contact-icon">in</span><span><small>LinkedIn</small><strong
+									th:text="${p.linkedin()}">LinkedIn</strong></span></a> <a
+								th:href="'https://' + ${p.github()}" target="_blank"
+								rel="noopener"><span class="contact-icon">GH</span><span><small>GitHub</small><strong
+									th:text="${p.github()}">GitHub</strong></span></a>
+						</div>
+						<a class="connect-button" th:href="'mailto:' + ${p.email()}">
+							<span class="plane">➤</span> <strong>Let's Connect</strong> <span>→</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container footer-inner">
+			<span>© 2026 Abhishek Kumbhar. All rights reserved.</span>
+			<nav>
+				<a href="#home">Home</a> <a href="#about">About</a> <a
+					href="#skills">Skills</a> <a href="#projects">Projects</a> <a
+					href="#experience">Experience</a> <a href="#education">Education</a>
+				<a href="#contact">Contact</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
