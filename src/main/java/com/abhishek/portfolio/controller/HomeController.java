@@ -27,9 +27,11 @@ public class HomeController {
         this.profile = profile;
     }
 
-    @GetMapping("/abhi_portfolio")
+    @GetMapping({"/", "/abhi_portfolio"})
     public String home(Model model) {
+
         model.addAttribute("p", profile);
+
         return "index";
     }
 }
